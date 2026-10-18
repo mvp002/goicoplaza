@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goico Plaza | Book a Room</title>
+    <meta
+      name="description"
+      content="Goico Plaza room booking website for mall clients to reserve meeting, event, and lounge spaces."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">Goico Plaza</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+            <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light ms-lg-3" href="#booking">Book now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center hero-content">
+          <div class="col-lg-7">
+            <p class="eyebrow">Luxury spaces in the heart of the mall</p>
+            <h1>Book the perfect room for your next business or event.</h1>
+            <p class="lead">
+              Discover stylish rooms and meeting halls at Goico Plaza. Reserve a quiet room,
+              host a presentation, or plan a private gathering with ease.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="#booking" class="btn btn-primary btn-lg px-4">Book a room</a>
+              <button id="showAvailableBtn" class="btn btn-outline-light btn-lg px-4" type="button">
+                See empty rooms
+              </button>
+            </div>
+            <div class="hero-stats mt-5">
+              <div>
+                <strong>18</strong>
+                <span>Premium rooms</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>Guest rating</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>Support desk</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="booking-highlight card border-0 shadow-lg">
+              <div class="card-body">
+                <div class="mini-badge">Today</div>
+                <h3>Available rooms</h3>
+                <ul id="quickRoomList" class="list-group list-group-flush mt-3"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="rooms" class="py-5">
+        <div class="container">
+          <div class="section-heading d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+            <div>
+              <p class="eyebrow text-primary">Available spaces</p>
+              <h2>Available rooms</h2>
+            </div>
+            <div class="toggle-box">
+              <label class="form-check form-switch">
+                <input id="availableOnlyToggle" class="form-check-input" type="checkbox" />
+                <span class="form-check-label">Show empty rooms only</span>
+              </label>
+            </div>
+          </div>
+          <div id="roomGrid" class="row g-4"></div>
+        </div>
+      </section>
+
+      <section id="booking" class="booking-section py-5">
+        <div class="container">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-6">
+              <div class="booking-panel card border-0 shadow-sm h-100">
+                <div class="card-body p-4 p-lg-5">
+                  <p class="eyebrow text-primary">Reservation</p>
+                  <h2>Reserve room</h2>
+                  <form id="bookingForm">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label for="clientName" class="form-label">Client name</label>
+                        <input id="clientName" class="form-control" type="text" placeholder="Jane Carter" required />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input id="phone" class="form-control" type="tel" placeholder="+1 555 014 300" required />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="roomSelect" class="form-label">Room</label>
+                        <select id="roomSelect" class="form-select" required></select>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="date" class="form-label">Date</label>
+                        <input id="date" class="form-control" type="date" required />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="time" class="form-label">Time</label>
+                        <input id="time" class="form-control" type="time" required />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="guests" class="form-label">Guests</label>
+                        <input id="guests" class="form-control" type="number" min="1" max="50" value="4" required />
+                      </div>
+                      <div class="col-12">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea id="notes" class="form-control" rows="3" placeholder="Event type, equipment needs, or guest instructions"></textarea>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Confirm booking</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="summary-panel card border-0 shadow-sm h-100">
+                <div class="card-body p-4 p-lg-5">
+                  <p class="eyebrow text-primary">Why clients choose us</p>
+                  <h2>Everything you need for a smooth reservation</h2>
+                  <div class="feature-list mt-4">
+                    <div class="feature-item">
+                      <span class="feature-icon">✓</span>
+                      <div>
+                        <h5>Instant room availability</h5>
+                        <p>Check which spaces are open before you reserve a meeting or celebration room.</p>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <span class="feature-icon">✓</span>
+                      <div>
+                        <h5>Premium amenities</h5>
+                        <p>High-speed Wi-Fi, projectors, and comfortable furniture in every room.</p>
+                      </div>
+                    </div>
+                    <div class="feature-item">
+                      <span class="feature-icon">✓</span>
+                      <div>
+                        <h5>Flexible booking</h5>
+                        <p>Choose dates and times that suit your schedule and client needs.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section py-5">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+              <div class="about-card card border-0 shadow-sm">
+                <div class="card-body p-4 p-lg-5">
+                  <p class="eyebrow text-primary">About Goico Plaza</p>
+                  <h2>Designed to host memorable moments</h2>
+                  <p>
+                    Goico Plaza brings together shopping, lifestyle, and event-ready spaces in one vibrant destination.
+                    Our rooms are ideal for business meetings, launch events, workshops, and private gatherings.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-badges d-flex flex-wrap gap-3">
+                <span class="badge-box">Meeting rooms</span>
+                <span class="badge-box">Private lounges</span>
+                <span class="badge-box">Event halls</span>
+                <span class="badge-box">VIP suites</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer py-4">
+      <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <span>© 2026 Goico Plaza</span>
+        <span>Room booking made simple</span>
+      </div>
+    </footer>
+
+    <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

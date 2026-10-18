@@ -1,0 +1,334 @@
+:root {
+  --primary: #ff6b35;
+  --primary-dark: #e95e2d;
+  --secondary: #102a43;
+  --surface: #f8f9fc;
+  --card: #ffffff;
+  --muted: #5d6785;
+  --success: #1fa76b;
+  --warning: #f7b267;
+  --danger: #d97777;
+  --shadow: 0 18px 40px rgba(16, 42, 67, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
+  color: var(--secondary);
+}
+
+img {
+  max-width: 100%;
+}
+
+.navbar {
+  background: rgba(16, 42, 67, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  letter-spacing: 0.04em;
+}
+
+.hero-section {
+  position: relative;
+  padding: 6rem 0 4rem;
+  background-image: linear-gradient(90deg, rgba(9, 28, 52, 0.78) 0%, rgba(16, 42, 67, 0.62) 45%, rgba(21, 73, 112, 0.18) 100%),
+    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 15, 22, 0.12), rgba(8, 15, 22, 0.28));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: 480px;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 620px;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.hero-stats div {
+  min-width: 130px;
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.hero-stats span {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.booking-highlight {
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.mini-badge {
+  display: inline-block;
+  background: rgba(255, 107, 53, 0.16);
+  color: var(--primary);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.quick-room-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+}
+
+.quick-room-item:last-child {
+  border-bottom: none;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.status-pill.available {
+  background: rgba(31, 167, 107, 0.12);
+  color: var(--success);
+}
+
+.status-pill.booked {
+  background: rgba(217, 119, 119, 0.12);
+  color: #b13a3a;
+}
+
+.section-heading h2,
+.booking-panel h2,
+.summary-panel h2,
+.about-card h2 {
+  margin: 0;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.toggle-box {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(16, 42, 67, 0.08);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+}
+
+.room-card {
+  background: var(--card);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(16, 42, 67, 0.06);
+  box-shadow: var(--shadow);
+  height: 100%;
+}
+
+.room-card .room-image {
+  height: 180px;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(16, 42, 67, 0.85));
+  position: relative;
+}
+
+.room-card .room-image::before {
+  content: 'Goico Plaza';
+  position: absolute;
+  inset: auto auto 18px 18px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.room-card .card-body {
+  padding: 1.25rem;
+}
+
+.room-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.room-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 1rem 0;
+}
+
+.room-meta span {
+  background: #f3f6fb;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+}
+
+.room-card .price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.room-card .card-footer {
+  border-top: 1px solid rgba(16, 42, 67, 0.08);
+  background: transparent;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.booking-section,
+.about-section {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.booking-panel,
+.summary-panel,
+.about-card {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(16, 42, 67, 0.06);
+  box-shadow: var(--shadow);
+}
+
+.form-control,
+.form-select,
+textarea {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(16, 42, 67, 0.12);
+  padding: 0.8rem 1rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: rgba(255, 107, 53, 0.8);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.15);
+}
+
+.feature-list {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.12);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
+
+.feature-item h5 {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+
+.feature-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.info-badges {
+  margin-top: 1rem;
+}
+
+.badge-box {
+  background: linear-gradient(135deg, #102a43, #1c4d7a);
+  color: #fff;
+  padding: 1rem 1.4rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+.footer {
+  background: #0d1f38;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.toast {
+  border-radius: 0.8rem;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 4.5rem;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+  }
+}
